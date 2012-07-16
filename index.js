@@ -4,8 +4,9 @@ var path = require('path');
 try {
   var env_app_root = process.env['APP_ROOT'];
   var app_root;
+  
   if (env_app_root != null) {
-    if (env_app_root[0] == '/') {
+    if (env_app_root[0] === '/') {
       app_root = env_app_root;
     } else {
       app_root = path.normalize(path.join(process.cwd(), env_app_root));
