@@ -1,0 +1,20 @@
+{
+  "name": "configwd",
+  "version": "0.0.1",
+  "description": "Synchronously reads config.json from process.cwd() or APP_ROOT environment variable, replacing occurrences of {{APP_ROOT}} in the JSON accordingly.",
+  "main": "index.js",
+  "scripts": {
+    "test": "APP_ROOT=./test node test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/stephenhandley/configwd"
+  },
+  "keywords": [
+    "config",
+    "json",
+    "cwd"
+  ],
+  "author": "Stephen Handley <stephen@hello10.com> (http://hello10.com)",
+  "license": "BSD"
+}

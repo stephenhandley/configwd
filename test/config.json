@@ -1,0 +1,10 @@
+{
+  "log": {
+    "level": "debug"
+  },
+  
+  "server": {
+    "port": 3001,
+    "public": "{{APP_ROOT}}/public"
+  }
+}
