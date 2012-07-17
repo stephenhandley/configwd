@@ -1,10 +1,10 @@
 # Description
 
-Synchronously reads config.json from process.cwd() or APP_ROOT environment variable, replacing occurrences of {{APP_ROOT}} in the JSON accordingly
+Synchronously reads config.json or config/*.json from process.cwd() or APP_ROOT environment variable, replacing occurrences of {{APP_ROOT}} in the JSON accordingly.
 
 # Latest Version
 
-0.0.1
+0.0.2
 
 # Installation
 ```
@@ -17,7 +17,7 @@ or in package.json
 {
   ...
   "dependencies": {
-    "configwd: "~0.0.1"
+    "configwd": "~0.0.2"
   }
 }
 ```

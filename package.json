@@ -1,10 +1,10 @@
 {
   "name": "configwd",
-  "version": "0.0.1",
-  "description": "Synchronously reads config.json from process.cwd() or APP_ROOT environment variable, replacing occurrences of {{APP_ROOT}} in the JSON accordingly.",
+  "version": "0.0.2",
+  "description": "Synchronously reads config.json or config/*.json from process.cwd() or APP_ROOT environment variable, replacing occurrences of {{APP_ROOT}} in the JSON accordingly.",
   "main": "index.js",
   "scripts": {
-    "test": "APP_ROOT=./test node test/test.js"
+    "test": "node test/test.js"
   },
   "repository": {
     "type": "git",
