@@ -1,6 +1,6 @@
 # Description
 
-Synchronously reads config.json or config/*.json from process.cwd() or APP_ROOT environment variable, replacing occurrences of {{APP_ROOT}} in the JSON accordingly.
+Synchronously reads config.json or config/*/*.json from process.cwd() or APP_ROOT environment variable, replacing occurrences of {{APP_ROOT}} in the JSON accordingly.
 
 # Latest Version
 
