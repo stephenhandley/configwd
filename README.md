@@ -4,7 +4,7 @@ Synchronously reads config.json or config/*.json from process.cwd() or APP_ROOT 
 
 # Latest Version
 
-0.0.2
+1.0.0
 
 # Installation
 ```
@@ -17,7 +17,7 @@ or in package.json
 {
   ...
   "dependencies": {
-    "configwd": "~0.0.2"
+    "configwd": "~1.0.0"
   }
 }
 ```
@@ -27,3 +27,6 @@ or in package.json
 ```
 var config = require('configwd');
 ```
+
+#Build status
+[![build status](https://secure.travis-ci.org/stephenhandley/configwd.png)](http://travis-ci.org/stephenhandley/configwd)

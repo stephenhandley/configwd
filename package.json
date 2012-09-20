@@ -1,6 +1,6 @@
 {
   "name": "configwd",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Synchronously reads config.json or config/*.json from process.cwd() or APP_ROOT environment variable, replacing occurrences of {{APP_ROOT}} in the JSON accordingly.",
   "main": "index.js",
   "scripts": {
