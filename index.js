@@ -15,59 +15,70 @@ if (env_app_root != null) {
   app_root = process.cwd();
 }
 
-var config_json;
-var config_json_filepath = path.join(app_root, 'config.json');
+var config;
+var config_filepath = path.join(app_root, 'config.json');
 
-if (fs.existsSync(config_json_filepath)) {
-  config_json = _readJsonConfigFile(config_json_filepath);
+if (fs.existsSync(config_filepath)) {
+  config = _readJsonConfigFile(config_filepath);
   
 } else {    
-  var folder_filepath = path.join(app_root, 'config');
+  var directory_filepath = path.join(app_root, 'config');
   
-  if (!(fs.existsSync(folder_filepath) && fs.statSync(folder_filepath).isDirectory())) {
+  if (!(fs.existsSync(directory_filepath) && fs.statSync(directory_filepath).isDirectory())) {
     throw "no config.json or config folder found in " + app_root;
   }
   
-  config_json = _readConfigFolder(folder_filepath);
+  config = _readConfigDirectory(directory_filepath);
+  
+  // if the config folder itself has a config.json with an environment
+  // merge that environment's config data in config/config.json and ignore the rest
+  var namespaced = config.config;
+  if (namespaced && namespaced.environment && config[namespaced.environment]) {
+    var environment_config = config[namespaced.environment];
+    for (var attr in environment_config) {
+      namespaced[attr] = environment_config[attr];
+    }
+    config = namespaced;
+  }
 }
 
-config_json.app_root = app_root;
+config.app_root = app_root;
 
 // Read and parse a json file
-function _readJsonConfigFile(config_json_filepath) {
+function _readJsonConfigFile(filepath) {
   try {
-    var config_json_string = fs.readFileSync(config_json_filepath, 'utf8');
-    config_json_string = config_json_string.replace(/{{APP_ROOT}}/g, app_root);    
-    return JSON.parse(config_json_string);
+    var json_string = fs.readFileSync(filepath, 'utf8');
+    json_string = json_string.replace(/{{APP_ROOT}}/g, app_root);    
+    return JSON.parse(json_string);
     
   } catch (error) {
-    console.log("There was an error reading this config file: " + config_json_filepath);
+    console.log("There was an error reading this config file: " + filepath);
     throw error;
   }
 }
 
-function _readConfigFolder(folder_filepath) {
-  var all_config_json = {};
+function _readConfigDirectory(directory_filepath) {
+  var dir_config = {};
   
-  fs.readdirSync(folder_filepath).forEach(function (filename) {  
-    var filepath = path.join(folder_filepath, filename);
-    var basename, config_json;
+  fs.readdirSync(directory_filepath).forEach(function (filename) {  
+    var filepath = path.join(directory_filepath, filename);
+    var basename, sub_config;
     
     if (fs.statSync(filepath).isDirectory()) {
        basename = filename;
-       config_json = _readConfigFolder(filepath);
+       sub_config = _readConfigDirectory(filepath);
        
     } else {    
       // don't require non-javascript files like blah.conf
       if (path.extname(filename) !== '.json') { return }
       basename = path.basename(filename, '.json');
-      config_json = _readJsonConfigFile(filepath);
+      sub_config = _readJsonConfigFile(filepath);
     }
     
-    all_config_json[basename] = config_json;
+    dir_config[basename] = sub_config;
   });
   
-  return all_config_json;
+  return dir_config;
 }
 
-module.exports = config_json;
+module.exports = config;
