@@ -54,7 +54,7 @@ the resulting config will be:
   "something": "else",
   "app_root": "/path/to/app",
   "barf" {
-    /* whatever is in config/barf */
+    /* whatever is in config/development/barf.json */
   }
 }
 ```
