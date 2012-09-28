@@ -4,7 +4,7 @@ Synchronously reads config.json or config/*/*.json from process.cwd() or APP_ROO
 
 # Latest Version
 
-1.1.0
+1.1.1
 
 # Installation
 ```
@@ -17,7 +17,7 @@ or in package.json
 {
   ...
   "dependencies": {
-    "configwd": "~1.1.0"
+    "configwd": "~1.1.1"
   }
 }
 ```
