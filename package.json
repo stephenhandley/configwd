@@ -1,15 +1,15 @@
 {
   "name": "configwd",
   "description": "Synchronously reads config.json or config/*.json from process.cwd() or APP_ROOT environment variable, replacing occurrences of {{APP_ROOT}} in the JSON accordingly.",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "license": "MIT",
   "main": "index.js",
-  
+
   "repository": {
     "type": "git",
     "url": "github.com/stephenhandley/configwd.git"
   },
-  
+
   "scripts": {
     "test": "node test/test.js"
   },
@@ -19,24 +19,24 @@
     "json",
     "cwd"
   ],
-  
+
   "directories" : {
     "lib" : "lib",
     "test": "test"
   },
-  
-  "bugs": { 
+
+  "bugs": {
     "url" : "http://github.com/stephenhandley/configwd/issues"
   },
-  
+
   "engines" : {
-    "node" : ">=0.4.0"
+    "node" : ">=0.10.5"
   },
-  
+
   "devDependencies": {
-    "asserts": "~2.1.0"
+    "asserts": "4.0.x"
   },
-  
+
   "author": {
     "name": "Stephen Handley",
     "email": "stephen.handley@gmail.com",

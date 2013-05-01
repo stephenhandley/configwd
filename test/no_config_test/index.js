@@ -1,8 +1,13 @@
 var assert = require('assert');
 var path = require('path');
 
+var _reset = require('../reset');
+
 module.exports = function () {
-  var configwd = path.join('..', '..');
-  
-  assert.throws(function() { require(configwd); }, /no config/);  
+  _reset(__dirname);
+  var configwd = path.join(__dirname, '..', '..');
+
+  assert.throws(function() {
+    require(configwd);
+  }, /no config/);
 };

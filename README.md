@@ -4,20 +4,20 @@ Synchronously reads config.json or config/*/*.json from process.cwd() or APP_ROO
 
 # Latest Version
 
-1.1.1
+1.1.2
 
 # Installation
 ```
 npm install configwd
 ```
 
-or in package.json 
+or in package.json
 
 ```json
 {
   ...
   "dependencies": {
-    "configwd": "~1.1.1"
+    "configwd": "1.1.x"
   }
 }
 ```
@@ -59,7 +59,7 @@ the resulting config will be:
 }
 ```
 
-This way of handling environments/namespaces is more restrictive than I'd like. Trying to think of a better way, but needed this for now. 
+This way of handling environments/namespaces is more restrictive than I'd like. Trying to think of a better way, but needed this for now.
 
 #Build status
 [![build status](https://secure.travis-ci.org/stephenhandley/configwd.png)](http://travis-ci.org/stephenhandley/configwd)
